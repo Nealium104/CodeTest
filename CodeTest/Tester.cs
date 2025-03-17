@@ -34,12 +34,22 @@ namespace CodeTest
         /// <summary>
         /// Function that takes a string and returns the count of each character in the string
         /// </summary>
-        /// <param name="inpput">input string</param>
-        /// <returns>Dictionary with each character from the string as the key and the count of each charter as the value</returns>
-        public static Dictionary<char, int> CharacterCount(string inpput)
+        /// <param name="input">input string</param>
+        /// <returns>Dictionary with each character from the string as the key and the count of each character as the value</returns>
+        public static Dictionary<char, int> CharacterCount(string input)
         {
             Dictionary<char, int> output = new Dictionary<char, int>();
 
+            foreach (char c in input)
+            {
+                if (!output.ContainsKey(c))
+                {
+                    output[c] = 1;
+                } else
+                {
+                    output[c]++;
+                }
+            }
             return output;
         }
 
