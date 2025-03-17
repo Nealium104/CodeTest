@@ -15,7 +15,20 @@ namespace CodeTest
         /// <returns>bool</returns>
         public static bool IsPalindrome(string input)
         {
-            return false;
+            int leftPointer = 0;
+            int rightPointer = input.Length - 1;
+
+            while (leftPointer < rightPointer)
+            {
+                if (input[leftPointer] != input[rightPointer])
+                {
+                    return false;
+                }
+                leftPointer++;
+                rightPointer--;
+            }
+
+            return true;
         }
 
         /// <summary>
