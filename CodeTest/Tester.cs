@@ -20,7 +20,7 @@ namespace CodeTest
 
             while (leftPointer < rightPointer)
             {
-                if (input[leftPointer] != input[rightPointer])
+                if (char.ToLower(input[leftPointer]) != char.ToLower(input[rightPointer]))
                 {
                     return false;
                 }
@@ -77,9 +77,27 @@ namespace CodeTest
         /// <returns>an array of integers</returns>
         public static int[] GetDiff(int[] input1, int[] input2)
         {
-            int[] output = new int[0];
+            List<int> output = new List<int>();
 
-            return output;
+            HashSet<int> set1 = new HashSet<int>(input1);
+            HashSet<int> set2 = new HashSet<int>(input2);
+
+            foreach (int num in set1)
+            {
+                if (!set2.Contains(num))
+                {
+                    output.Add(num);
+                }
+            }
+
+            foreach (int num in set2)
+            {
+                if (!set1.Contains(num))
+                {
+                    output.Add(num);
+                }
+            }
+            return output.ToArray();
         }
     }
 }
